@@ -387,9 +387,7 @@ servers, relevant only for streaming replication.  Default 0
 Return Value
 ******************************
 
-A tuple which represents a row from :ref:`pg_dist_node
-<pg_dist_node>` table.
-
+The nodeid column from the newly inserted row in :ref:`pg_dist_node <pg_dist_node>`.
 
 Example
 ***********************
@@ -397,9 +395,9 @@ Example
 .. code-block:: postgresql
 
     select * from master_add_node('new-node', 12345);
-     nodeid | groupid | nodename | nodeport | noderack | hasmetadata | isactive | groupid | noderole | nodecluster
-    --------+---------+----------+----------+----------+-------------+----------+---------+----------+ ------------
-          7 |       7 | new-node |    12345 | default  | f           | t        |       0 | primary  | default
+     master_add_node
+    -----------------
+                   7
     (1 row)
 
 .. _master_update_node:
@@ -457,7 +455,7 @@ servers, relevant only for streaming replication.  Default 0
 Return Value
 ******************************
 
-A tuple which represents a row from :ref:`pg_dist_node <pg_dist_node>` table.
+The nodeid column from the newly inserted row in :ref:`pg_dist_node <pg_dist_node>`.
 
 Example
 ***********************
@@ -465,9 +463,9 @@ Example
 .. code-block:: postgresql
 
     select * from master_add_inactive_node('new-node', 12345);
-     nodeid | groupid | nodename | nodeport | noderack | hasmetadata | isactive | groupid | noderole | nodecluster
-    --------+---------+----------+----------+----------+-------------+----------+---------+----------+ -------------
-          7 |       7 | new-node |    12345 | default  | f           | f        |       0 | primary  | default
+     master_add_inactive_node
+    --------------------------
+                            7
     (1 row)
 
 master_activate_node
@@ -487,8 +485,7 @@ Arguments
 Return Value
 ******************************
 
-A tuple which represents a row from :ref:`pg_dist_node
-<pg_dist_node>` table.
+The nodeid column from the newly inserted row in :ref:`pg_dist_node <pg_dist_node>`.
 
 Example
 ***********************
@@ -496,9 +493,9 @@ Example
 .. code-block:: postgresql
 
     select * from master_activate_node('new-node', 12345);
-     nodeid | groupid | nodename | nodeport | noderack | hasmetadata | isactive| noderole | nodecluster
-    --------+---------+----------+----------+----------+-------------+---------+----------+ -------------
-          7 |       7 | new-node |    12345 | default  | f           | t       | primary  | default
+     master_activate_node
+    ----------------------
+                        7
     (1 row)
 
 master_disable_node
@@ -555,7 +552,7 @@ Arguments
 Return Value
 ******************************
 
-A tuple which represents a row from :ref:`pg_dist_node <pg_dist_node>` table.
+The nodeid column for the secondary node, inserted row in :ref:`pg_dist_node <pg_dist_node>`.
 
 Example
 ***********************
@@ -563,9 +560,9 @@ Example
 .. code-block:: postgresql
 
     select * from master_add_secondary_node('new-node', 12345, 'primary-node', 12345);
-     nodeid | groupid | nodename | nodeport | noderack | hasmetadata | isactive | noderole  | nodecluster
-    --------+---------+----------+----------+----------+-------------+----------+-----------+-------------
-          7 |       7 | new-node |    12345 | default  | f           | t        | secondary | default
+     master_add_secondary_node
+    ---------------------------
+                             7
     (1 row)
 
 
