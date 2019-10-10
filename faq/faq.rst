@@ -109,7 +109,6 @@ Certain commands, when run on the coordinator node, do not get propagated to the
 
 * ``CREATE ROLE/USER``
 * ``CREATE FUNCTION``
-* ``CREATE TYPE``
 * ``CREATE EXTENSION``
 * ``CREATE DATABASE``
 * ``ALTER … SET SCHEMA``
